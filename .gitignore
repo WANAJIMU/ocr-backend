@@ -1,0 +1,6 @@
+.vscode/
+env/
+uploads/
+db.sqlite3
+z_unyama.txt
+*/__pycache__
