@@ -36,11 +36,12 @@ openapi.Info(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('accounts.urls')),
-    path('loan/', include('verify.urls')),
+    path('', include('accounts.urls')),
+    path('', include('verify.urls')),
     path('api-auth/', include('rest_framework.urls')),
-    path('api/v1/dj-rest-auth/', include('dj_rest_auth.urls')),
-    path('api/v1/dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')),
-    path('sw/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('users/api/v1/dj-rest-auth/', include('dj_rest_auth.urls')),
+    path('users/api/v1/dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')),
+    path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path("__debug__/", include("debug_toolbar.urls")),
 ]

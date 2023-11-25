@@ -4,6 +4,8 @@ from rest_framework import status
 from .models import CustomUser
 from .serializers import UserSerializer
 from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.authtoken.models import Token
+from rest_framework.response import Response
 
 class RegistrationAPIView(generics.CreateAPIView):
     queryset = CustomUser.objects.all()
@@ -16,12 +18,6 @@ class RegistrationAPIView(generics.CreateAPIView):
         headers = self.get_success_headers(serializer.data)
         return Response({'message': 'User registered successfully'}, status=status.HTTP_201_CREATED, headers=headers)
 
-
-# views.py in your app
-
-
-from rest_framework.authtoken.models import Token
-from rest_framework.response import Response
 
 class EmailOrUsernameLoginAPIView(ObtainAuthToken):
     def post(self, request, *args, **kwargs):

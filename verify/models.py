@@ -12,9 +12,23 @@ class UserData(models.Model):
     date_of_application = models.DateTimeField(auto_now=True)
     organization_working_under = models.CharField(max_length=200)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    # is_verified = models.BooleanField(default=False)
+
+    # def verify_loan(self):
+    #     self.is_verified==True
+
+
     
+class Check(models.Model):
+    image_1 = models.ImageField(upload_to='check_images/')
 
 
+class OCRData(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    image = models.ImageField(upload_to='ocr_images/')
+    text = models.TextField(blank=True)
+
+    # also each should be associated with a user
 
 
 
@@ -27,4 +41,6 @@ class UserData(models.Model):
 
 
 # Please attach: ID card (e.g National ID, Voters reg. No, Driving license, Passport, Ward ID, Others), Three Recent Salary slips, Two Recent Photographs, Employment Contract, Introduction letter, Passport (if any), Valuation report (if security is landed property), Working and Residence permit (if non citizen) and Others as may be advised by Bank official.
+
+
 
