@@ -6,5 +6,5 @@ urlpatterns = [
     path('apply/<int:pk>/', UserDataRetrieveUpdateDestroyView.as_view(), name='loan-retrieve-update-destroy'),
     path('api/ocr/', OCRAPIView.as_view(), name='ocr_api'),
     path('upload-now/ocrdata/', OCRDataListCreateView.as_view(), name='ocrdata-list-create'),
-    path('doc-create/', CheckImageCreateView.as_view(), name='okay')
+    path('verify/doc/', CheckImageCreateView.as_view(), name='okay')
 ]
