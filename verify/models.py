@@ -12,15 +12,17 @@ class UserData(models.Model):
     date_of_application = models.DateTimeField(auto_now=True)
     organization_working_under = models.CharField(max_length=200)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    # is_verified = models.BooleanField(default=False)
-
-    # def verify_loan(self):
-    #     self.is_verified==True
 
 
     
 class Check(models.Model):
     image_1 = models.ImageField(upload_to='check_images/')
+    is_verified = models.BooleanField(default=False)
+
+
+    def mark_as_verified(self):
+        self.is_verified==True
+        self.save()
 
 
 class OCRData(models.Model):

@@ -19,3 +19,4 @@ staticfiles/
 *.cache
 */migrations/*
 /migrations/
+*jek.py

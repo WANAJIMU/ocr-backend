@@ -11,6 +11,7 @@ class UserDataSerializer(serializers.ModelSerializer):
 
 
 class CheckSerializer(serializers.ModelSerializer):
+    
     class Meta:
         model = Check
         fields = ('id', 'image_1')
